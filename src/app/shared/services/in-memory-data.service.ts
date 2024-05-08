@@ -9,7 +9,7 @@ export class InMemoryDataService implements InMemoryDbService {
   constructor() {}
 
   createDb() {
-    const decks: Deck[] = [];
+    const decks: Deck[] = [{ id: 1, name: 'seila', cards: [] }];
     return { decks };
   }
 }
