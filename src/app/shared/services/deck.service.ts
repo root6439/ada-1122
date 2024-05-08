@@ -1,16 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Deck } from '../models/Deck.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DeckService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getDecks() {
-    return [
-      { id: 1, name: 'deck-1' },
-      { id: 2, name: 'deck-2' },
-      { id: 3, name: 'deck-3' },
-    ];
+    return this.http.get<Deck[]>('api/decks');
   }
 }

@@ -1,6 +1,13 @@
+<div class="d-flex justify-content-between">
+    <h1>Meus decks</h1>
+    <button mat-flat-button color="primary" routerLink="/new-deck">Novo deck</button>
+</div>
+
 <!-- forma nova -->
 @for (deck of decks; track deck.id) {
-<p>{{ deck.id }} - {{ deck.name }}</p>
+<deck [data]="deck" />
+} @empty {
+<p>Não há dados</p>
 }
 
 <!-- forma antiga -->

@@ -1,27 +1,22 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
-import { Card } from '../../models/Card.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Deck } from '../../models/Deck.model';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-deck',
+  selector: 'deck',
   standalone: true,
-  imports: [],
+  imports: [MatButtonModule],
   templateUrl: './deck.component.html',
-  styleUrl: './deck.component.scss'
+  styleUrl: './deck.component.scss',
 })
-export class DeckComponent { 
-
+export class DeckComponent {
   @Input()
-  id: number;
+  data: Deck;
 
-  @Input()
-  name: string;
+  @Output()
+  emitter = new EventEmitter();
 
-  @Input()
-  cards: Card[];
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(`mudou o valor da variavel ${changes['id']}`);
-    
+  onClick() {
+    this.emitter.emit('Clicou no botão');
   }
-
 }

@@ -3,7 +3,7 @@
     <mat-label>Id</mat-label>
     <input matInput formControlName="id" />
     @if(deckForm.get('id').getError('required')) {
-    <mat-error>Campo obrigatório</mat-error>
+      <mat-error>Campo obrigatório</mat-error>
     }
   </mat-form-field>
 
@@ -11,7 +11,7 @@
     <mat-label>Nome</mat-label>
     <input matInput formControlName="name" />
     @if(deckForm.get('name').getError('required')) {
-    <mat-error>Campo obrigatório</mat-error>
+      <mat-error>Campo obrigatório</mat-error>
     }
   </mat-form-field>
 
