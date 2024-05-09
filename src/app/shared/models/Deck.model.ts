@@ -1,7 +1,7 @@
-import { Card } from './Card.model';
+import { CardCustom } from './Card.model';
 
 export class Deck {
   id?: number;
   name: string;
-  cards: Card[];
+  cards: CardCustom[];
 }

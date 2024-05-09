@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { DeckService } from '../../shared/services/deck.service';
 import { Deck } from '../../shared/models/Deck.model';
 import { Router } from '@angular/router';
+import { CardService } from '../../shared/services/card.service';
+import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 
 @Component({
   selector: 'app-new-deck',
@@ -23,7 +25,8 @@ export class NewDeckComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private deckService: DeckService,
-    private router: Router
+    private router: Router,
+    private cardService: CardService
   ) {}
 
   deckForm = this.fb.group({
@@ -31,7 +34,11 @@ export class NewDeckComponent implements OnInit {
     cards: [],
   });
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cardService.getCards().subscribe((resp) => {
+      console.log(resp);
+    });
+  }
 
   onSubmit(): void {
     const deck: Deck = {
