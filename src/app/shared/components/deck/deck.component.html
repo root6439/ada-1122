@@ -1,8 +1,15 @@
 <div class="deck">
-  <p>
-    {{ data.id }}
-  </p>
-  <p>
-    {{ data.name }}
-  </p>
+  <div>
+    <p>
+      <strong>Id: </strong>
+      {{ data.id }}
+    </p>
+    <p>
+      <strong>Nome: </strong>
+      {{ data.name }}
+    </p>
+  </div>
+  <button mat-icon-button color="accent" (click)="onClick()">
+    <mat-icon>edit</mat-icon>
+  </button>
 </div>

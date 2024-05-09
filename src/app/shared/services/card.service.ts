@@ -27,7 +27,7 @@ export class CardService {
     //   },
     // });
 
-    return this.http.get<CardCustom[]>('https://api.pokemontcg.io/v2/cards', {
+    return this.http.get('https://api.pokemontcg.io/v2/cards', {
       headers,
     });
   }

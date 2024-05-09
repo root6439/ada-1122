@@ -13,12 +13,16 @@ export class DeckService {
     return this.http.get<Deck[]>('api/decks');
   }
 
+  getDeckById(id: number) {
+    return this.http.get<Deck>('api/decks/' + id);
+  }
+
   postDeck(deck: Deck) {
     return this.http.post<Deck[]>('api/decks', deck);
   }
 
-  putDeck(id: number, deck: PutDeckRequest) {
-    return this.http.put<Deck[]>(`api/decks/${id}`, deck);
+  putDeck(deck: Deck) {
+    return this.http.put<Deck[]>(`api/decks/`, deck);
   }
 
   deleteDeck(id: number) {

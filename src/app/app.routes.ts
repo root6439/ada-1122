@@ -9,6 +9,10 @@ export const routes: Routes = [
     component: NewDeckComponent,
   },
   {
+    path: "update-deck/:id",
+    component: NewDeckComponent,
+  },
+  {
     path: 'search-decks',
     component: SearchDecksComponent,
   },
