@@ -1,7 +1,12 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CardCustom } from '../models/Card.model';
 
+/*
+ Os serviços fornecem métodos e variáveis para serem consumidos por nossos components
+ Através do serviço podemos exercer o principio da responsabilidade unica, pois não 
+ é da conta do componente saber como são feitas chamadas http, ou como funciona 
+ determinada regra de negócio
+*/
 @Injectable({
   providedIn: 'root',
 })
