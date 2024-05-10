@@ -26,6 +26,6 @@ export const appConfig: ApplicationConfig = {
       InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 })
     ),
     CardService,
-    DeckService
+    DeckService,
   ],
 };
