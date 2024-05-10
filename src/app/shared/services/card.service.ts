@@ -8,6 +8,8 @@ import { CardCustom } from '../models/Card.model';
 export class CardService {
   constructor(private http: HttpClient) {}
 
+  nome = '';
+
   getCards(
     page: number = 1,
     pageSize: number = 12,

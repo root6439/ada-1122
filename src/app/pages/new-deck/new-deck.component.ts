@@ -7,7 +7,6 @@ import { DeckService } from '../../shared/services/deck.service';
 import { Deck } from '../../shared/models/Deck.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardService } from '../../shared/services/card.service';
-import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 
 @Component({
   selector: 'app-new-deck',
@@ -40,12 +39,14 @@ export class NewDeckComponent implements OnInit {
 
   ngOnInit(): void {
     this.verifyFlow();
+    this.cardService.nome = 'app-new-deck';
+    console.log(this.cardService.nome);
   }
 
   verifyFlow() {
     this.cardId = this.route.snapshot.params['id'];
     this.editMode = this.cardId != undefined;
-    
+
     if (this.editMode) {
       this.getDeckById();
     }

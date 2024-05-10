@@ -5,6 +5,7 @@ import { DeckComponent } from '../../shared/components/deck/deck.component';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
 import { Deck } from '../../shared/models/Deck.model';
+import { CardService } from '../../shared/services/card.service';
 
 @Component({
   selector: 'app-search-decks',
@@ -14,7 +15,11 @@ import { Deck } from '../../shared/models/Deck.model';
   styleUrl: './search-decks.component.scss',
 })
 export class SearchDecksComponent implements OnInit {
-  constructor(private deckService: DeckService, private router: Router) {}
+  constructor(
+    private deckService: DeckService,
+    private router: Router,
+    private cardService: CardService
+  ) {}
 
   decks: Deck[] = [];
 
