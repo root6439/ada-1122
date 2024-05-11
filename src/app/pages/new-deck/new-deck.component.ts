@@ -7,6 +7,7 @@ import { DeckService } from '../../shared/services/deck.service';
 import { Deck } from '../../shared/models/Deck.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardService } from '../../shared/services/card.service';
+import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 
 @Component({
   selector: 'app-new-deck',
@@ -26,7 +27,7 @@ export class NewDeckComponent implements OnInit {
     private deckService: DeckService,
     private router: Router,
     private cardService: CardService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   editMode = false;
@@ -51,6 +52,7 @@ export class NewDeckComponent implements OnInit {
   */
   ngOnInit(): void {
     this.verifyFlow();
+    this.getCards();
   }
 
   /*
@@ -91,6 +93,7 @@ export class NewDeckComponent implements OnInit {
     this.cardService.getCards().subscribe((resp) => {
       console.log(resp);
     });
+
   }
 
   onSubmit(): void {

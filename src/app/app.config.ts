@@ -2,11 +2,12 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
 import { CardService } from './shared/services/card.service';
 import { DeckService } from './shared/services/deck.service';
+import { InterceptorService } from './shared/services/interceptor.service';
 
 /*
   Aqui nós instanciamos os serviços globais de nossa aplicação.
@@ -21,6 +22,11 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
     provideHttpClient(),
     importProvidersFrom(
       InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 })

@@ -13,18 +13,12 @@ import { Injectable } from '@angular/core';
 export class CardService {
   constructor(private http: HttpClient) {}
 
-  nome = '';
-
   getCards(
     page: number = 1,
     pageSize: number = 12,
     select: string = 'id, name, images',
     q: string = ''
   ) {
-    const headers = new HttpHeaders();
-
-    headers.append('X-Api-Key', 'b1455db4-924e-472c-aff1-255d09affd31');
-
     // const params = new HttpParams({
     //   fromObject: {
     //     page,
@@ -34,8 +28,6 @@ export class CardService {
     //   },
     // });
 
-    return this.http.get('https://api.pokemontcg.io/v2/cards', {
-      headers,
-    });
+    return this.http.get('https://api.pokemontcg.io/v2/cards');
   }
 }
