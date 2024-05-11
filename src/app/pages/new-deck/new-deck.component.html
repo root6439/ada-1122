@@ -1,10 +1,31 @@
-<form [formGroup]="deckForm" (ngSubmit)="onSubmit()">
+<!-- 
+  No html temos a estrutura e template do nosso formulário
+  Teremos a tag form, os inputs e os botões
+  Para trabalhar com reactive forms obrigatoriamente precisamos setar o atributo
+  [formGroup], passando como parametro o formGroup que está no nosso .ts configurado.
+  E para vincular os inputs, precisamos da propriedade formControlName e passamos qual
+  control é responsável pelo input em questão
+-->
 
+<!-- versão simples do form -->
+<!-- <form [formGroup]="deckForm" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="Nome" formControlName="name" />
+  @if(deckForm.get('name').getError('required')) {
+  <small style="color: red">Campo obrigatório</small>
+  }
+
+  <button type="submit" [disabled]="deckForm.invalid">Cadastrar</button>
+  <button type="reset">Limpar</button>
+  <button type="button">Cancelar</button>
+</form> -->
+
+<!-- Versão usando material -->
+<form [formGroup]="deckForm" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="outline">
     <mat-label>Nome</mat-label>
     <input matInput formControlName="name" />
     @if(deckForm.get('name').getError('required')) {
-      <mat-error>Campo obrigatório</mat-error>
+    <mat-error>Campo obrigatório</mat-error>
     }
   </mat-form-field>
 
